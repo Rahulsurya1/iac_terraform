@@ -32,7 +32,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
 
   security_rule {
     name                       = "SSH"
-    priority                   = 1011
+    priority                   = 1022
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
