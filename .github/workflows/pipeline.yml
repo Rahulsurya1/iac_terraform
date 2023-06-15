@@ -1,4 +1,4 @@
-name: Creation of APIM instance in various environments 
+name: Creation of Azure_VM 
 on:
   push:
     branches: dev
@@ -10,8 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.5.2
  
-      - name: azure view deployment changes
+      - name: preview the azure infra to be deployed
         run: |
+              cd terraform_code
               terraform init
               terraform plan
    
@@ -22,8 +23,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.5.2
  
-      - name: create apim insatance in DEV ENV
-        run: terraform apply
+      - name: create azure_vm 
+        run: |
+              cd terraform_code
+              terraform apply
     
   
   QA:
