@@ -43,7 +43,7 @@ resource "azurerm_network_security_group" "my_terraform_nsg" {
   }
   security_rule {
     name                       = "added_1"
-    priority                   = 1010
+    priority                   = 1011
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
