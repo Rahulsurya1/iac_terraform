@@ -14,12 +14,9 @@ on:
       api_specification_format:
         type: specification format of API
         description: mention the API specification format
-      choice:
-        type: specification format of API
-        description: mention the API specification format
         options:
         - OpenApi
-        - Wadl, 
+        - Wadl 
         - Swagger 
         - Wsdl
         - OpenApiJson
@@ -47,7 +44,7 @@ jobs:
         run: |
           cd /home/etpAdmin/api_export_specs
           rm emcp-echo.yaml
-          $ApiMgmtContext = New-AzApiManagementContext -ResourceGroupName "etpxapimdata" -ServiceName "etpx-apim-cicd"
+          $ApiMgmtContext = New-AzApiManagementContext -ResourceGroupName "etpxapimdata" -ServiceName "${{ inputs.apim_name }}"
           Export-AzApiManagementApi -Context $ApiMgmtContext -ApiId "emcp-echo" -SpecificationFormat "OpenApi" -SaveAs "/home/etpAdmin/api_export_specs/emcp-echo.yaml"
 
       - name: initialise the git
